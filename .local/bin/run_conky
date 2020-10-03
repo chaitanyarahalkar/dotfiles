@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sleep 5s
+conky
+sleep 5s
+exit

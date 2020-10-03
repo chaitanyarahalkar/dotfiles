@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+helps()
+{
+	echo "usage: set_time [OPTION]/[TIME-FORMAT]"
+	echo ""
+	echo "options:"
+	echo "  -h, --help 		Show this help"
+	echo ""
+	echo "Example:"
+	echo "  set_time \"2020-01-17 05:55:15\""
+	echo ""	
+}
+
+if (( $# == 1 )); then
+	if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+		helps
+	else
+		sudo timedatectl set-time "$1"
+		sudo hwclock --systohc
+	fi
+	
+else
+	helps
+fi
